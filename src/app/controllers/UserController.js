@@ -13,6 +13,10 @@ class UserController {
 
     return response.json({ id, name, email, provider });
   }
+
+  async update(request, response) {
+    return response.json({ ok: true });
+  }
 }
 
 export default new UserController();
