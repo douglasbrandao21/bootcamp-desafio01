@@ -2,9 +2,17 @@ const express = require("express");
 
 const server = express();
 
-server.get("/hello", (request, response) => {
+// Query params = /users/?name="Douglas Brandão"
+// Route params = /users/1
+// Request body = body das requisições HTTP (POST e PUT)
+
+server.get("/users/:id", (request, response) => {
+  const { name } = request.query;
+  const { id } = request.params;
+
   response.json({
-    message: "Hello World"
+    id,
+    name
   });
 });
 
