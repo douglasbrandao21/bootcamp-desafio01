@@ -6,14 +6,25 @@ const server = express();
 // Route params = /users/1
 // Request body = body das requisições HTTP (POST e PUT)
 
+const users = [
+  {
+    id: "1",
+    name: "Douglas Brandão"
+  },
+  {
+    id: "2",
+    name: "Douglas Canevarollo"
+  },
+  {
+    id: "3",
+    name: "Douglas Honda"
+  }
+];
+
 server.get("/users/:id", (request, response) => {
-  const { name } = request.query;
   const { id } = request.params;
 
-  response.json({
-    id,
-    name
-  });
+  response.json(users[id]);
 });
 
 server.listen(3000);
